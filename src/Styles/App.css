@@ -1,0 +1,33 @@
+/* #root {
+  max-width: 1280px;
+} */
+
+th, td, .link {
+  padding: 12px 5px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.renderNews {
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+.shadow:hover {
+  box-shadow: 2px 10px 10px gray;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-150%); }
+}
+
+.marquee {
+  display: flex;
+  gap: 8px;
+  min-width: 100%;
+  animation: marquee 20s linear infinite;
+}
