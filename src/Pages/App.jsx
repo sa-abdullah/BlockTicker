@@ -63,7 +63,7 @@ const App = () => {
                       <span className="text-2xl">
                         {Math.round(globalData?.totalVolume).toLocaleString("en-US", { style: "currency", currency: "USD" })}
                       </span>
-                      <span className="text-gray-400 flex gap-2 items-center text-md">24h Trading Volume</span>
+                      <span className="text-gray-400 text-md">24h Trading Volume</span>
                     </p>
                 )}
               </div>
