@@ -38,7 +38,7 @@ const App = () => {
           }
           <div className="flex w-full h-[40vh] gap-2 my-10">
             <div className="w-1/3 h-[100%] flex flex-col justify-between">
-              <div className="h-[49%] w-full border-3 border-gray-200 rounded-3xl p-6">
+              <div className="h-[49%] w-full border-4 border-gray-300 rounded-3xl p-6">
                 {(!globalData?.totalMarketCap || !globalData?.marketCapChange)
                 ? `Loading...`
                 : (
@@ -55,7 +55,7 @@ const App = () => {
                   </p>
                 )}
               </div>
-              <div className="h-[49%] w-full border-3 border-gray-200 rounded-3xl p-6">
+              <div className="h-[49%] w-full border-4 border-gray-300 rounded-3xl p-6">
                 {(!globalData?.totalVolume)
                   ? `Loading...`
                   : (
@@ -68,7 +68,7 @@ const App = () => {
                 )}
               </div>
             </div>
-            <div className="w-1/3 h-[100%] border-3 border-gray-200 rounded-3xl p-3">
+            <div className="w-1/3 h-[100%] border-4 border-gray-300 rounded-3xl p-3">
               <p className="flex justify-between text-xl font-semibold mb-5">&#128293; Trending <Link to="/trending" className="text-base font-normal hover:text-green-800 cursor-pointer">View More &gt;</Link></p>
               <table className="w-full">
                 <tbody className="w-full">
@@ -93,7 +93,7 @@ const App = () => {
                 </tbody>
               </table>
             </div>
-            <div className="w-1/3 h-[100%] border-3 border-gray-200 rounded-3xl p-3">
+            <div className="w-1/3 h-[100%] border-4 border-gray-300 rounded-3xl p-3">
               <p className="flex justify-between text-xl font-semibold mb-5">&#128640; News Today <Link to="/news" className="text-base font-normal hover:text-green-800 cursor-pointer">View More &gt;</Link></p>
               <table className="w-full">
                 <tbody className="w-full">
