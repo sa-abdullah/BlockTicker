@@ -1,4 +1,5 @@
 import Logo from '../assets/logo2.png'
+import { FaLinkedin, FaFacebook, FaXTwitter, FaWhatsapp, FaDiscord } from 'react-icons/fa6';
 
 const Footer = () => {
 
@@ -16,13 +17,13 @@ const Footer = () => {
                     <p>Donations</p>
                     <p>Bitcoin</p>
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 items-center text-2xl">
                     <h3 className="font-semibold text-xl">Community</h3>
-                    <a href="https://x.com/AbdullahBytes" target="_blank">Twitter</a>
-                    <a href="https://www.linkedin.com/in/salaudeenabdul/" target="_blank">Linkedin</a>
-                    
-                    <p>Whatsapp</p>
-                    <p>Discord</p>
+                    <a href="https://x.com/AbdullahBytes" target="_blank"><FaXTwitter /></a>
+                    <a href="https://www.linkedin.com/in/salaudeenabdul/" target="_blank"><FaLinkedin /></a>
+                    <a href="https://api.whatsapp.com/send?phone=2348088629556" target="_blank"><FaWhatsapp /></a>
+                    <a href="https://discord.com/users/el___guapo" target="_blank"><FaDiscord /></a>
+                    <a href="https://facebook.com" target="_blank"><FaFacebook /></a>
                 </div>
             </div>
         </div>

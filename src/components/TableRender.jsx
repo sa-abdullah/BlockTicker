@@ -41,7 +41,7 @@ const CryptoTable = ({ tableData }) => {
                       <td className="font-bold">{coin?.marketCapRank}</td>
                       <td className="flex items-center gap-2">
                         <img src={coin?.image} alt={coin?.name} className="w-6 h-6"/> 
-                        {coin?.name}
+                        {coin?.name.length > 20 ? coin?.name.slice(0, 20) + "..." : coin?.name}
                         <p className="text-gray-600">{coin?.symbol?.toUpperCase()}</p>
                       </td>
                       <td>{coin?.curPrice?.toLocaleString("en-US", { style: "currency", currency: "USD" })}</td>
