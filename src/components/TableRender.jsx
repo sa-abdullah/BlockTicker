@@ -42,7 +42,7 @@ const CryptoTable = ({ tableData }) => {
                       <td className="align-middle h-full min-w-[200px] lg:min-w-fit sticky left-[60px] z-10 whitespace-nowrap">
                         <div className="flex space-x-1 min-w-[100px]">
                           <img src={coin?.image} alt={coin?.name} className="w-6 h-6"/> 
-                          <span>{coin?.name.length > 20 ? coin?.name.slice(0, 20) + "..." : coin?.name}</span>
+                          <span className="whitespace-nowrap">{coin?.name.length > 20 ? coin?.name.slice(0, 20) + "..." : coin?.name}</span>
                           <span className="text-gray-600">{coin?.symbol?.toUpperCase()}</span>
                         </div>
                       </td>

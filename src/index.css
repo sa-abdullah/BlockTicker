@@ -11,7 +11,7 @@
 @tailwind utilities;
 
 body {
-  overflow-x: hidden;
+  overflow-x: none;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
