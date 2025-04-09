@@ -10,8 +10,6 @@ const Header = () => {
     setIsOpen(!isOpen)
   }
 
-
-
     return (
         <>
           <div className="w-full font-red-600 flex justify-between p-5 border-b-2 border-b-gray-300">

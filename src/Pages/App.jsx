@@ -25,8 +25,8 @@ const App = () => {
     <>
       <Header />
       <div className="py-10 box-border w-full">
-        <div className="px-10 w-full">
-          <h1 className="text-4xl font-semibold mt-10 mb-5">Cryptocurrency Prices By Market Cap</h1>
+        <div className="px-5 lg:px-10 w-full">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-1 lg:mt-5 mb-5">Cryptocurrency Prices By Market Cap</h1>
           {globalData && 
           <p>
             The global cryptocurrency market cap today is <span>{formatter.format(globalData?.totalMarketCap)}</span>, a change of 
@@ -36,8 +36,8 @@ const App = () => {
             </span>in the last 24 hours.
           </p>
           }
-          <div className="flex w-full h-[40vh] gap-2 my-10">
-            <div className="w-1/3 h-[100%] flex flex-col justify-between">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10">
+            <div className="h-full flex flex-col gap-3 justify-between">
               <div className="h-[49%] w-full border-4 border-gray-300 rounded-3xl p-6">
                 {(!globalData?.totalMarketCap || !globalData?.marketCapChange)
                 ? `Loading...`
@@ -63,12 +63,12 @@ const App = () => {
                       <span className="text-2xl">
                         {Math.round(globalData?.totalVolume).toLocaleString("en-US", { style: "currency", currency: "USD" })}
                       </span>
-                      <span className="text-gray-400 text-md">24h Trading Volume</span>
+                      <span className="text-gray-400 text-md">24h Trading Vol</span>
                     </p>
                 )}
               </div>
             </div>
-            <div className="w-1/3 h-[100%] border-4 border-gray-300 rounded-3xl p-3">
+            <div className="h-full border-4 border-gray-300 rounded-3xl p-3">
               <p className="flex justify-between text-xl font-semibold mb-3">&#128293; Trending <Link to="/trending" className="text-base font-normal hover:text-green-800 cursor-pointer">View More &gt;</Link></p>
               <table className="w-full">
                 <tbody className="w-full">
@@ -93,7 +93,7 @@ const App = () => {
                 </tbody>
               </table>
             </div>
-            <div className="w-1/3 h-[100%] border-4 border-gray-300 rounded-3xl p-3">
+            <div className="h-full border-4 border-gray-300 rounded-3xl p-3">
               <p className="flex justify-between text-xl font-semibold mb-5">&#128640; News Today <Link to="/news" className="text-base font-normal hover:text-green-800 cursor-pointer">View More &gt;</Link></p>
               <table className="w-full">
                 <tbody className="w-full">
@@ -109,7 +109,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div className="min-w-[100vw] max-h-auto flex flex-col items-center gap-4 p-10 text-base overflow-none cursor-pointer">
+        <div className="max-h-auto py-10 px-0 lg:px-10 text-base cursor-pointer overflow-x-auto">
           <CryptoTable tableData={cryptoData} />
         </div>
       </div>
