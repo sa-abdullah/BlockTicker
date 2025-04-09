@@ -39,7 +39,7 @@ const CryptoTable = ({ tableData }) => {
                   tableData?.slice(0, 100).map((coin) => (
                     <tr onClick={() => navigate(`/detail/${coin.id}`)} className="bg-gray-100 cursor-pointer" key={coin.id}>
                       <td className="sticky left-0 min-w-[60px] z-20">{coin?.marketCapRank}</td>
-                      <td className="align-middle h-full min-w-[200px] lg:min-w-fit sticky left-[60px] z-10">
+                      <td className="align-middle h-full min-w-[200px] lg:min-w-fit sticky left-[60px] z-10 whitespace-nowrap">
                         <div className="flex space-x-1 min-w-[100px]">
                           <img src={coin?.image} alt={coin?.name} className="w-6 h-6"/> 
                           <span>{coin?.name.length > 20 ? coin?.name.slice(0, 20) + "..." : coin?.name}</span>
