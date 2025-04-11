@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <>
-          <div className="w-full font-red-600 flex justify-between p-5 border-b-2 border-b-gray-300">
+          <div className="w-full font-red-600 flex justify-between p-5 border-b-2 border-b-gray-300 mb-5">
             <div className="hidden lg:flex items-center gap-10 font-semibold">
                 <Link to="/" className="flex items-center gap-1 text-2xl font-bold"><img src={Logo} alt="" className="w-[35px]" /> BlockTicker</Link>
                 <Link to="/trending">Trending</Link>

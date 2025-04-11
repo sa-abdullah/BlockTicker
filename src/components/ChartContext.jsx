@@ -92,10 +92,17 @@ export const CryptoProvider = ({children}) => {
 
     try {
       const API_KEY = import.meta.env.VITE_NEWS_API;
-      const CRYPTO_NEWS_API = `https://gnews.io/api/v4/search?q=crypto&lang=en&apikey=${API_KEY}`
+      const CRYPTO_NEWS_API = `https://newsapi.org/v2/everything`
       const resNews = await Axios.get(CRYPTO_NEWS_API, {
+        params: {
+          q: 'cryptocurrency', 
+          language: 'en',
+          sortBy: 'publishedAt', 
+          pageSize: 25,          
+          apiKey: API_KEY,
+        },
       })
-      setNews(resNews.data.articles)
+      setNews(resNews?.data?.articles)
 
     } catch (error) {
         console.error("Error fetching news data:", error);
