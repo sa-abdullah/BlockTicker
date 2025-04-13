@@ -24,7 +24,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <div className="py-10 box-border w-full">
+      <div className="py-10 box-border w-full font-sans">
         <div className="px-5 lg:px-10 w-full">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-1 lg:mt-5 mb-5">Cryptocurrency Prices By Market Cap</h1>
           {globalData && 
