@@ -119,8 +119,8 @@ export const CoinInfo = () => {
         <>
             <Header />
             <RollingDisplay cryptoData={cryptoData}/>
-            {<div className="flex w-full p-4">
-                <div className="w-[35%] flex flex-col gap-5">
+            {<div className="flex flex-col lg:flex-row w-full p-4">
+                <div className="w-full lg:w-[35%] flex flex-col gap-5">
                     {
                         info?.name ? 
                         (
@@ -161,7 +161,7 @@ export const CoinInfo = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="w-[65%]">
+                <div className="w-full lg:w-[65%]">
                     <h2 className="text-4xl text-green-800 text-center my-5 font-semibold">{info?.name} Market Overview</h2>
                     <div className="my-5 flex justify-between border-t-1 px-2">
                         <div className="flex gap-3 mb-2 pt-2 justify-center">

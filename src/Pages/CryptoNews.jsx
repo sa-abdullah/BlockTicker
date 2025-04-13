@@ -63,7 +63,7 @@ export const CryptoNews = () => {
                 </div>
                 <div className="grid gap-4 grid-cols-1 lg:grid-cols-3 h-auto mt-10 mb-20 lg:mt-14">
                     {news?.slice(4)?.map((post, index) => (
-                        <a href={post?.url} target="_blank" className={`border p-4 rounded-lg flex flex-col gap-2 min-h-[400px] border-1 hover:border-black`} key={index}>
+                        <a href={post?.url} target="_blank" className={`border p-4 rounded-lg flex flex-col gap-2 min-h-[400px] border-1 hover:border-black`} key={index} rel="noopener noreferrer">
                             <img src={post?.urlToImage ? post?.urlToImage : placeholder} alt={post?.title} className={`w-full object-contain rounded mb-5`} />
                             <div className='h-[40%] flex flex-col justify-between'>
                                 <h2 className={`font-semibold mb-5 capitalize text-green-800 text-xl`}>{post?.title}</h2>

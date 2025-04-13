@@ -91,17 +91,10 @@ export const CryptoProvider = ({children}) => {
     }
 
     try {
-      const API_KEY = import.meta.env.VITE_NEWS_API;
-      const CRYPTO_NEWS_API = `https://newsapi.org/v2/everything`
-      const resNews = await Axios.get(CRYPTO_NEWS_API, {
-        params: {
-          q: 'cryptocurrency', 
-          language: 'en',
-          sortBy: 'publishedAt', 
-          pageSize: 25,          
-          apiKey: API_KEY,
-        },
-      })
+      // const API_KEY = import.meta.env.VITE_NEWS_API;
+      // console.log(API_KEY)
+      const CRYPTO_NEWS_API = `http://localhost:5000/api/news`
+      const resNews = await Axios.get(CRYPTO_NEWS_API)
       setNews(resNews?.data?.articles)
 
     } catch (error) {
