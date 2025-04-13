@@ -22,7 +22,6 @@ const CryptoTable = ({ tableData }) => {
         <table className="min-w-full border-separate border-spacing-1 table-auto">
             <thead className="bg-gray-800 text-white text-center">
               <tr>
-                {/* <th className="sticky left-0 min-w-[60px] bg-blue-900 z-20 whitespace-nowrap">Rank</th> */}
                 <th className="min-w-[40vw] md:min-w-fit sticky left-0 bg-blue-900 z-10 whitespace-nowrap">Coin</th>
                 <th className="min-w-[150px] md:min-w-fit bg-blue-900 whitespace-nowrap">Price</th>
                 <th className="min-w-[150px] md:min-w-fit bg-blue-900 whitespace-nowrap">24h Price %</th>
@@ -38,7 +37,6 @@ const CryptoTable = ({ tableData }) => {
                 tableData ? (
                   tableData?.slice(0, 100).map((coin) => (
                     <tr onClick={() => navigate(`/detail/${coin.id}`)} className="bg-gray-100 cursor-pointer" key={coin.id}>
-                      {/* <td className="sticky left-0 min-w-[60px] z-20">{coin?.marketCapRank}</td> */}
                       <td className="align-center text-left h-full min-w-[40vw] md:min-w-[200px] sticky left-0 z-10 whitespace-nowrap px-5">
                         <p className="w-[10%] inline-block text-left">{coin?.marketCapRank}</p>
                         <div className="hidden md:inline-grid grid-flow-col auto-cols-max min-h-full place-items-center gap-2 w-[90%] text-right space-x-1 w-full ml-5">

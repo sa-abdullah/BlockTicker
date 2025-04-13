@@ -109,7 +109,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div className="max-h-auto py-10 px-0 lg:px-10 text-base cursor-pointer overflow-x-auto">
+        <div className="max-h-auto py-10 px-0 lg:px-2 text-base cursor-pointer overflow-x-auto">
           <CryptoTable tableData={cryptoData} />
         </div>
       </div>
