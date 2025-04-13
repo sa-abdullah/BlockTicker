@@ -145,18 +145,18 @@ export const CoinInfo = () => {
                         ) : ""
                     }
                     {(info?.low24h && info?.high24h) ? (<PriceRangeSlider low={Number(info?.low24h) || 0} high={Number(info?.high24h)|| 100} current={Number(info?.currPriceUSD) || 50} />) : (<p>Loading...</p>)}
-                    <ul className="max-w-md">
+                    <ul className="max-w-sm">
                         <TopDetail info={info} />        
                     </ul>
                     <div>
                         <p className="text-2xl font-semibold px-5 my-5">Info</p>
-                        <ul className="max-w-md">
+                        <ul className="max-w-sm">
                             <MidDetail info={info} />     
                         </ul>
                     </div>
                     <div>
                         <p className="text-2xl font-semibold px-5 my-5">{info?.name} Historical Price</p>
-                        <ul className="max-w-md">
+                        <ul className="max-w-sm">
                             <GeneralDetail info={info}/>
                         </ul>
                     </div>
