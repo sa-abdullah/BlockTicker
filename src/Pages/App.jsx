@@ -25,7 +25,7 @@ const App = () => {
     <>
       <Header />
       <div className="py-10 box-border w-full">
-        <div className="px-5 lg:px-10 w-full">
+        <div className="px-2 lg:px-10 w-full">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mt-1 lg:mt-5 mb-5">Cryptocurrency Prices By Market Cap</h1>
           {globalData && 
           <p>
@@ -109,7 +109,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div className="max-h-auto py-10 px-0 lg:px-2 text-base cursor-pointer overflow-x-auto">
+        <div className="max-h-auto py-10 px-0 text-base cursor-pointer overflow-x-auto">
           <CryptoTable tableData={cryptoData} />
         </div>
       </div>
