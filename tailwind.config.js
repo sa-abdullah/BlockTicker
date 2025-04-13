@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Roboto', 'sans-serif']
-      },
+        sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+      },      
     },
   },
   plugins: [],
