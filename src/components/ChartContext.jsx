@@ -91,8 +91,6 @@ export const CryptoProvider = ({children}) => {
     }
 
     try {
-      // const API_KEY = import.meta.env.VITE_NEWS_API;
-      // console.log(API_KEY)
       const CRYPTO_NEWS_API = `http://localhost:5000/api/news`
       const resNews = await Axios.get(CRYPTO_NEWS_API)
       setNews(resNews?.data?.articles)

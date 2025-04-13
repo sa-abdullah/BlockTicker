@@ -16,15 +16,12 @@ import RollingDisplay from '../components/RollingDisplay'
 export const CoinInfo = () => {
     const [info, setInfo] = useState()
     const [chartData, setChartData] = useState()
-    const { cryptoData, getCaretIcon, colorChange, LoadingSpinner } = useCrypto()
+    const { cryptoData, getCaretIcon, colorChange } = useCrypto()
     const { id } = useParams()
     const [days, setDays] = useState(7)
     const [chartState, setChartState] = useState(null)
     const [active, setActive] = useState("prices")
     const [styleInt, setStyleInt] = useState(7)
-
-    const cryptoContext = useCrypto();
-    console.log(cryptoContext);
     
     const DISPLAY_API = `https://api.coingecko.com/api/v3/coins/${id}`
 
@@ -84,6 +81,8 @@ export const CoinInfo = () => {
           }
     }
 
+    console.log(info)
+
     useEffect(() => {
         FetchInfo()
         if (chartData?.prices) {
@@ -119,7 +118,7 @@ export const CoinInfo = () => {
         <>
             <Header />
             <RollingDisplay cryptoData={cryptoData}/>
-            {<div className="flex flex-col lg:flex-row w-full p-4">
+            {<div className=" flex-col lg:flex-row w-full p-4 hidden lg:flex">
                 <div className="w-full lg:w-[35%] flex flex-col gap-5">
                     {
                         info?.name ? 
@@ -145,18 +144,18 @@ export const CoinInfo = () => {
                         ) : ""
                     }
                     {(info?.low24h && info?.high24h) ? (<PriceRangeSlider low={Number(info?.low24h) || 0} high={Number(info?.high24h)|| 100} current={Number(info?.currPriceUSD) || 50} />) : (<p>Loading...</p>)}
-                    <ul className="max-w-sm">
+                    <ul className="max-w-lg">
                         <TopDetail info={info} />        
                     </ul>
                     <div>
                         <p className="text-2xl font-semibold px-5 my-5">Info</p>
-                        <ul className="max-w-sm">
+                        <ul className="max-w-lg">
                             <MidDetail info={info} />     
                         </ul>
                     </div>
                     <div>
                         <p className="text-2xl font-semibold px-5 my-5">{info?.name} Historical Price</p>
-                        <ul className="max-w-sm">
+                        <ul className="max-w-lg">
                             <GeneralDetail info={info}/>
                         </ul>
                     </div>
@@ -183,6 +182,83 @@ export const CoinInfo = () => {
                         (
                             <div className="max-h-full">
                                 <h2 className="text-4xl text-green-800 text-center my-10 font-semibold">About {info?.name}</h2>
+                                <div className="prose prose-lg max-w-full text-gray-800">
+                                    <MarkdownRenderer content={info?.description}/>
+                                </div>
+                            </div>
+                        ) : ""
+                    }
+                </div>
+            </div>}
+
+            {<div className="flex lg:hidden flex-col w-[100vw] p-4 gap-10 border-2 border-red-600">
+                <div className="w-full flex flex-col">
+                    {
+                        info?.name ? 
+                        (
+                            <div className="flex items-center gap-3 mb-10">
+                                <img className="w-15"src={info?.image} alt="" />
+                                <p className="text-xl font-semibold">{info?.name}</p>
+                                <p className="text-base">{info?.symbol?.toUpperCase()} Price</p>
+                                <span className="border-1 p-1 rounded-lg">#{info?.marketCapRank}</span>
+                            </div>
+                        ) : ""
+                    }
+                    {
+                        info?.currPriceUSD ? 
+                        (
+                            <div className="flex gap-4">
+                                <span className="text-5xl font-semibold">${info?.currPriceUSD}</span>
+                                <span className="text-2xl font-semibold text-black flex items-center" style={{color:colorChange(info?.priceChange24h)}}>
+                                    {getCaretIcon(info?.priceChange24h)}
+                                    {Math.abs(info?.priceChange24h.toFixed(2))}% 
+                                </span>
+                            </div>
+                        ) : ""
+                    }
+                    {(info?.low24h && info?.high24h) ? (<PriceRangeSlider low={Number(info?.low24h) || 0} high={Number(info?.high24h)|| 100} current={Number(info?.currPriceUSD) || 50} />) : (<p>Loading...</p>)}
+                </div>
+                <div className="w-full">
+                    <h2 className="text-2xl text-green-800 my-5 font-semibold">{info?.name} Market Overview</h2>
+                    <div className="my-5 flex-col md:flex-row justify-between border-t-1 px-2">
+                        <div className="flex gap-3 mb-2 pt-2">
+                            {chartData?.prices ? <button type="button" className={`px-4 py-2 text-sm md:text-base rounded-lg ${active === "prices" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"}`} onClick={() => handleChart("prices") }>Prices</button> : ""}  
+                            {chartData?.market_caps ? <button type="button" className={`px-4 py-2 text-sm md:text-base rounded-lg ${active === "market_caps" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"}`} onClick={() => handleChart("market_caps")}>Market Cap</button> : ""}
+                            {chartData?.total_volumes ? <button type="button" className={`px-4 py-2 text-sm md:text-base rounded-lg ${active === "total_volumes" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"}`} onClick={() => handleChart("total_volumes")}>Total Volume</button> : ""}
+                        </div>
+                        <div className="flex gap-3 mb-2 pt-2">
+                            <button type="button" className={`px-4 py-2 text-sm md:text-base rounded-lg ${styleInt === 7 ? "bg-red-800 text-white" : "bg-gray-200 text-black"}`} onClick={() => {handleDaysChange(7)  ? handleDaysChange(7)  : "Loading..."}}>7 Days</button>  
+                            <button type="button" className={`px-4 py-2 text-sm md:text-base rounded-lg ${styleInt === 14 ? "bg-red-800 text-white" : "bg-gray-200 text-black"}`} onClick={() => {handleDaysChange(14) ? handleDaysChange(14) : "Loading..."}}>14 Days</button>
+                            <button type="button" className={`px-4 py-2 text-sm md:text-base rounded-lg ${styleInt === 30 ? "bg-red-800 text-white" : "bg-gray-200 text-black"}`} onClick={() => {handleDaysChange(30) ? handleDaysChange(30) : "Loading..."}}>30 Days</button>
+                        </div>
+                    </div>
+                    <div className="h-[50vh] bg-yellow-100">
+                        {chartData?.prices ? (<CryptoSparkline prices={chartState} />) : <p className="flex items-center justify-center">Loading...</p>}
+                    </div>
+                </div>
+                <div className="w-full flex flex-col gap-5">
+                    <ul className="max-w-lg">
+                        <TopDetail info={info} />        
+                    </ul>
+                    <div>
+                        <p className="text-2xl font-semibold px-5 my-5">Info</p>
+                        <ul className="max-w-lg">
+                            <MidDetail info={info} />     
+                        </ul>
+                    </div>
+                    <div>
+                        <p className="text-2xl font-semibold px-5 my-5">{info?.name} Historical Price</p>
+                        <ul className="max-w-lg">
+                            <GeneralDetail info={info}/>
+                        </ul>
+                    </div>
+                </div>
+                <div className="w-full">
+                    {
+                        info?.description ? 
+                        (
+                            <div className="max-h-full ">
+                                <h2 className="text-2xl text-green-800 text-center font-semibold">About {info?.name}</h2>
                                 <div className="prose prose-lg max-w-full text-gray-800">
                                     <MarkdownRenderer content={info?.description}/>
                                 </div>
