@@ -98,9 +98,9 @@ const App = () => {
               <table className="w-full">
                 <tbody className="w-full">
                   {
-                    news?.articles?.slice(0, 3).map((article, index) => (
+                    news?.slice(0, 3).map((post, index) => (
                       <tr className="w-full justify-between" key={index}>
-                        <td className="renderNews text-md font-semibold">{article.title.length > 45 ? article.title.slice(0, 45) + "..." : article.title}</td>
+                        <td className="renderNews text-md font-semibold">{post?.title.length > 45 ? post?.title.slice(0, 45) + "..." : post?.title}</td>
                       </tr>
                     ))
                   }
