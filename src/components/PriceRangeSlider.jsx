@@ -10,7 +10,7 @@ const PriceRangeSlider = ({ low, high, current }) => {
   }, [low, high, current]);
 
   return (
-    <div className="relative w-full max-w-md">
+    <div className="relative w-full max-w-sm">
       <div className="absolute top-1/2 left-0 w-full h-3 bg-gray-300 rounded-lg transform -translate-y-1/2"></div>
       
       <div
