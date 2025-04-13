@@ -191,7 +191,7 @@ export const CoinInfo = () => {
                 </div>
             </div>}
 
-            {<div className="flex lg:hidden flex-col w-[100vw] p-4 gap-10 border-2 border-red-600">
+            {<div className="flex lg:hidden flex-col w-[100vw] p-4 gap-10">
                 <div className="w-full flex flex-col">
                     {
                         info?.name ? 
